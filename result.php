@@ -24,7 +24,7 @@
         }
 
         tr:nth-child(odd){
-            background-color: gainsboro;
+            background-color: whitesmoke;
         }
     </style>
 </head>
@@ -43,7 +43,7 @@
         $result = $link->query($sql);
         $row = $result->fetch_array();
         while($row != null){
-        echo "<h3>La ciudad [ " . $row['Name'] . " ] del pais [" . $row['CountryCode'] . "] tiene una poblacion de ---> " . $row['Population'] . "</h3>";
+        echo "<h3>La ciudad [ " . $row['Name'] . " ] del pais con codigo [" . $row['CountryCode'] . "] tiene una poblacion de ---> " . $row['Population'] . "</h3>";
         ?>
         <table>
             <thead>
