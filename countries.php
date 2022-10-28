@@ -14,7 +14,7 @@
     $result = $link->query($sql);
     $row = $result->fetch_array();
     while ($row != null){
-        echo "<option value='" . $row['Name'] .  " id=" . $row['Name'] . ">" . $row['Name'] . "</option>";
+        echo "<option value='" . $row['Code'] .  "' id=" . $row['Code'] . ">" . $row['Name'] . "</option>";
     $row = $result->fetch_array();
     }
     $result->close();

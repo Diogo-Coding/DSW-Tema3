@@ -1,4 +1,4 @@
-<?php 
+<?php
     @$link = new mysqli('db', 'root', 'test', 'world');
     $error = $link->connect_errno;
     if($error != null){
@@ -6,22 +6,23 @@
         die();
     }
     $country = $_POST['countries'];
-    $code = $_POST['Code'];
         echo "<h1>Cities of " . $country . "</h1>";
         echo "<form action='result.php' method='POST'>";
         echo "<select name='cities'>";
 
-    $sql = "Select * FROM city WHERE CountryCode = '" . $code. "'";
+    $sql = "Select * FROM city WHERE CountryCode = '" . $country. "'";
     $result = $link->query($sql);
     $row = $result->fetch_array();
     while ($row != null){
-        echo "<option value='" . $row['Name'] . $row['Name'] . ">" . $row['Name'] . "</option>";
+        echo "<option value='" . $row['Name'] .  "' id=" . $row['Name'] . ">" . $row['Name'] . "</option>";
+        $code = $row['CountryCode'];
     $row = $result->fetch_array();
     }
     $result->close();
 
         echo "</select>";
         echo "<input type='submit' value='Enviar'>";
+        echo "<input type='hidden' value='$code' name='countrycode'>";
         echo "</form>";
 
     $link->close();
